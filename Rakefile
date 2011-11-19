@@ -17,10 +17,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "timecapsule"
   gem.homepage = "http://github.com/reneedv/timecapsule"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "gem for importing and exporting ActiveRecord data."
+  gem.description = "Great for creating seed data from data entered through your app's ui or the console"
   gem.email = "renee.devoursney@gmail.com"
-  gem.authors = ["Renée De Voursney"]
+  gem.authors = ["Renée De Voursney"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -42,7 +42,7 @@ end
 
 task :default => :test
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
