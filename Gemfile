@@ -1,7 +1,8 @@
 source "http://rubygems.org"
 # Add dependencies required to use your gem here.
 # Example:
-   gem "activerecord", ">= 2.3.5"
+#   gem "activerecord", ">= 2.3.5"
+#   gem "rails", ">=2.3.5"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
