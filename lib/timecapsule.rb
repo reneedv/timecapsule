@@ -1,6 +1,6 @@
 class Timecapsule
 
-  config = YAML.load_file(Rails.root.join("config/timecapsule.yml")
+  config = YAML.load_file(Rails.root.join("config/timecapsule.yml"))
   IMPORT_DIR = config[:import_directory] || 'db/seed_data/'
   EXPORT_DIR = config[:export_directory] || 'db/seed_data/'
   
