@@ -8,8 +8,8 @@
 == USAGE:
   * Export a model from your app to a csv file. Here is an example for a User model:
     $ Timecapsule.export_model(User)
-  *	Import a model from the csv file:
-		$	Timecapsule.import_model(User)
+  * Import a model from the csv file:
+    $ Timecapsule.import_model(User)
 	*	To specify a different import or export directory, besides the default db/seed, open the automatically generated config/timecapsule.yml file and change the export directory.
 	*	To import all the csv files in your import directory call the import method:
 		$	Timecapsule.import
