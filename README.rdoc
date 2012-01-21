@@ -10,13 +10,13 @@
     $ Timecapsule.export_model(User)
   * Import a model from the csv file:
     $ Timecapsule.import_model(User)
-	*	To specify a different import or export directory, besides the default db/seed, open the automatically generated config/timecapsule.yml file and change the export directory.
-	*	To import all the csv files in your import directory call the import method:
-		$	Timecapsule.import
-	*	If the order of import matters for your models, you can specify the order at export time:
-		$	Timecapsule.export_model(User, 1)
-			Timecapsule.export_model(Post, 2)
-	*	Remember that if you want to maintain relationships between import/export you must reset the primary key sequence (id) for each of the tables for your models. Or drop and re-create your database.
+	  * To specify a different import or export directory, besides the default db/seed, open the automatically generated config/timecapsule.yml file and change the export directory.
+	  * To import all the csv files in your import directory call the import method:
+	    $ Timecapsule.import
+	  * If the order of import matters for your models, you can specify the order at export time:
+	    $ Timecapsule.export_model(User, 1)
+				Timecapsule.export_model(Post, 2)
+  * Remember that if you want to maintain relationships between import/export you must reset the primary key sequence (id) for each of the tables for your models. Or drop and re-create your database.
 
 Copyright (c) 2011-present MIT
 
