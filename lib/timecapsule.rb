@@ -23,9 +23,10 @@ class Timecapsule
   
   require 'csv'
   
-  def self.import_model(model_import)
-    puts "Importing: #{model_import} from #{IMPORT_DIR}#{model_import.to_s.pluralize.underscore}.csv"
-    csv = CSV.read(Rails.root.join("#{IMPORT_DIR}#{model_import.to_s.pluralize.underscore}.csv"))
+  def self.import_model(model_import, file_name=nil)
+    file_name ||= Rails.root.join("#{IMPORT_DIR}$#{model_import.to_s.pluralize.underscore}.csv")
+    puts "Importing: #{model_import} from #{file_name}"
+    csv = CSV.read(file_name)
     attributes = csv.shift
     csv.each do |row|
       hash = {}
@@ -33,16 +34,16 @@ class Timecapsule
         hash[key] = row[i]
       end
       object = model_import.new(hash)
-      object.save(false)
+      object.save(:validate => false)
     end
   end
   
   def self.import
     @csv_files = Dir.glob("#{IMPORT_DIR}*.csv").sort
     @csv_files.each do |file|
-      model_name = file.split('').last.split('.').first.classify.constantize
+      model_name = file.split('$').last.split('.').first.classify.constantize
       if model_name.count == 0
-        Timecapsule.import_model(model_name)
+        Timecapsule.import_model(model_name, file)
       end
     end
   end

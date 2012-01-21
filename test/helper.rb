@@ -38,9 +38,31 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string :username
     t.string :password
   end
+  
+  create_table :posts do |t|
+    t.string :title
+    t.string :body
+    t.integer :user_id 
+  end
 end
 
+module ActiveRecord
+  class Base
+    def self.reset_pk_sequence
+      new_max = maximum(primary_key) || 0
+      update_seq_sql = "update sqlite_sequence set seq = #{new_max} where name = '#{table_name}';"
+      ActiveRecord::Base.connection.execute(update_seq_sql)
+    end     
+  end
+end
+
+
 class User < ActiveRecord::Base
+  has_many :posts
+end
+
+class Post < ActiveRecord::Base
+  belongs_to :user
 end
 
 class Test::Unit::TestCase
