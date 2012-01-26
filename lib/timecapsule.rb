@@ -41,7 +41,11 @@ class Timecapsule
   def self.import
     @csv_files = Dir.glob("#{IMPORT_DIR}*.csv").sort
     @csv_files.each do |file|
-      model_name = file.split('$').last.split('.').first.classify.constantize
+      if file.include?('$')
+        model_name = file.split('$').last.split('.').first.classify.constantize
+      else
+        model_name = file.split('/').last.split('.').first.classify.constantize
+      end
       if model_name.count == 0
         Timecapsule.import_model(model_name, file)
       end
