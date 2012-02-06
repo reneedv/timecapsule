@@ -31,6 +31,8 @@ GEM
       multi_json (~> 1.0)
     arel (2.2.1)
     builder (3.0.0)
+    configatron (2.9.0)
+      yamler (>= 0.1.0)
     erubis (2.7.0)
     git (1.2.5)
     hike (1.2.1)
@@ -87,6 +89,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
+    yamler (0.1.0)
 
 PLATFORMS
   ruby
@@ -95,6 +98,7 @@ DEPENDENCIES
   activerecord (>= 2.3.5)
   activesupport (>= 2.3.5)
   bundler (~> 1.0.0)
+  configatron
   jeweler (~> 1.6.4)
   rails (>= 2.3.5)
   rcov
