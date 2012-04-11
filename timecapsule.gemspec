@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "timecapsule"
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ren\303\251e De Voursney"]
-  s.date = "2012-01-27"
+  s.date = "2012-04-11"
   s.description = "Great for creating seed data from data entered through your app's ui or the console"
   s.email = "renee.devoursney@gmail.com"
   s.extra_rdoc_files = [
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "gemfiles/rails3.gemfile",
     "gemfiles/rails3_1.gemfile",
     "lib/timecapsule.rb",
+    "lib/timecapsule/railtie.rb",
     "test/helper.rb",
     "test/test_timecapsule.rb",
     "timecapsule.gemspec"
@@ -38,7 +39,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/reneedv/timecapsule"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.15"
   s.summary = "gem for importing and exporting ActiveRecord data."
 
   if s.respond_to? :specification_version then
