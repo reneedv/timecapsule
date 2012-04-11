@@ -4,6 +4,8 @@
 
 == Install:
   $ gem install timecapsule
+  * for Rails <3.0 use:
+  $ gem install --version '= 1.0.0' timecapsule
 
 == Usage:
   * Export a model from your app to a csv file. Here is an example for a User model:

@@ -2,6 +2,7 @@ require 'rubygems'
 require 'thread'
 require 'active_record'
 require 'active_support'
+require 'rails'
 
 require 'bundler'
 begin
@@ -23,7 +24,7 @@ module Rails
   end
 end
 
-ActiveRecord::Base.logger = ::Logger.new(StringIO.new)
+#ActiveRecord::Base.logger = ::Logger.new(StringIO.new)
 
 ENV["RAILS_ENV"] = "test"
 ENV["RAILS_ROOT"] = File.expand_path(File.join(File.dirname(__FILE__), '..'))
