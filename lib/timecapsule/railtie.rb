@@ -9,7 +9,7 @@ class Timecapsule
           Dir.mkdir(path) unless File.exists?(path)
         end
 
-        default_config = {:import_directory => Rails.root.join('db/seed_data/').to_s , :export_directory => Rails.root.join('db/seed_data/').to_s}
+        default_config = {:import_directory => 'db/seed_data/' , :export_directory => 'db/seed_data/'}
         config_pathname = Rails.root.join("config/timecapsule.yml")
         config_dir_pathname = Rails.root.join("config")
         unless File.exists?(config_pathname)
@@ -19,8 +19,8 @@ class Timecapsule
           config_file.close
         end
         config = YAML.load_file(config_pathname)
-        Timecapsule::IMPORT_DIR = config[:import_directory]
-        Timecapsule::EXPORT_DIR = config[:export_directory]
+        Timecapsule::IMPORT_DIR = Rails.root.join(config[:import_directory]).to_s
+        Timecapsule::EXPORT_DIR = Rails.root.join(config[:export_directory]).to_s
       end
   end
 end
