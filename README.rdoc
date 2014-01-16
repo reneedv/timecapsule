@@ -1,5 +1,6 @@
 = timecapsule
 
+{<img src="https://badge.fury.io/rb/timecapsule.png" alt="Gem Version" />}[http://badge.fury.io/rb/timecapsule]
 {<img src="https://travis-ci.org/reneedv/timecapsule.png?branch=master" alt="Build Status" />}[https://travis-ci.org/reneedv/timecapsule]
 {<img src="https://codeclimate.com/github/reneedv/timecapsule.png" />}[https://codeclimate.com/github/reneedv/timecapsule]
 
