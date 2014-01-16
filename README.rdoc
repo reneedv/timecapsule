@@ -1,6 +1,7 @@
 = timecapsule
 
 {<img src="https://travis-ci.org/reneedv/timecapsule.png?branch=master" alt="Build Status" />}[https://travis-ci.org/reneedv/timecapsule]
+{<img src="https://codeclimate.com/github/reneedv/timecapsule.png" />}[https://codeclimate.com/github/reneedv/timecapsule]
 
   Gem for importing and exporting ActiveRecord data. 
   Great for creating seed data from data entered through your app's ui or the console.
