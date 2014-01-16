@@ -31,6 +31,20 @@ ENV["RAILS_ROOT"] = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
 require 'timecapsule'
 
+class Timecapsule
+  default_config = {:import_directory => 'db/seed_data/' , 
+                  :export_directory => 'db/seed_data/'}
+  IMPORT_DIR ||= default_config[:import_directory]
+  EXPORT_DIR ||= default_config[:export_directory]
+  def Timecapsule.check_for_and_make_directory(path)
+    return true if File.exists?(path)
+    path = Pathname.new(path)
+    parent = path.parent
+    Timecapsule.check_for_and_make_directory(parent) unless path.parent.parent.root?
+    Dir.mkdir(path) unless File.exists?(path)
+  end
+end
+
 ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
 
 ActiveRecord::Schema.define(:version => 1) do
@@ -45,6 +59,11 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string :title
     t.string :body
     t.integer :user_id 
+  end
+
+  create_table :names do |t|
+    t.string :name
+    t.string :other_name
   end
 end
 
@@ -65,6 +84,9 @@ end
 
 class Post < ActiveRecord::Base
   belongs_to :user
+end
+
+class Name < ActiveRecord::Base
 end
 
 class Test::Unit::TestCase

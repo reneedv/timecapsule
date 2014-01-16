@@ -12,8 +12,10 @@ class TestTimecapsule < Test::Unit::TestCase
   def cleanup_db!
     User.destroy_all
     Post.destroy_all
+    Name.destroy_all
     User.reset_pk_sequence
     Post.reset_pk_sequence
+    Name.reset_pk_sequence
   end
   
   should "export a model" do
@@ -53,4 +55,16 @@ class TestTimecapsule < Test::Unit::TestCase
     assert_equal User.first, Post.first.user
     cleanup!
   end
+
+  should "export part of a model" do
+    u = User.create!(:first_name => 'test', :last_name => 'tester')
+    Timecapsule.export_model(User,nil,{first_name: :name, last_name: :other_name},'name')
+    cleanup_db!
+    assert_equal true, File.exists?("#{Timecapsule::EXPORT_DIR}$#{'name'.to_s.pluralize.underscore}.csv")
+    Timecapsule.import
+    assert_equal 1, Name.count
+    assert_equal 'test', Name.first.name
+    cleanup!
+  end
+
 end
